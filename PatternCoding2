@@ -1,0 +1,61 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/**
+ *
+ * @author Anil
+ */
+public class JavaApplication10 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws IOException {
+        // TODO code application logic here
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Number of terms to print : ");
+        int i=0, n=0;
+        n=Integer.parseInt(br.readLine());
+        String pattern[]=new String[n];
+        pattern[0]="2 ";
+        for(i=1;i<n;i++)
+        {
+            int j=0,k=0;
+            int counter=1;
+            StringBuilder temp = new StringBuilder();
+            while(pattern[i-1].charAt(j)!=' ')
+            {
+                int count=0;
+                if((pattern[i-1].charAt(j))== pattern[i-1].charAt(j+1)) {
+                    counter=counter+1;
+//                        System.out.println(pattern[i-1].charAt(j-1));
+//                        System.out.println(pattern[i-1].charAt(j));
+
+                    
+                
+                } else {
+//                        System.out.print("Here");
+                        temp.insert(k++, counter);
+                        temp.insert(k++, pattern[i-1].charAt(j));
+                        counter=1;
+                        
+                }
+                j++;
+//                System.out.print("Counter for " +i);
+//                System.out.println(counter);                
+                
+                
+            }
+            temp.append(' ');
+            pattern[i]=new String(temp);
+//            System.out.println();
+            
+        }
+        for(i=0;i<n;i++)
+            System.out.println(pattern[i]);
+        
+        
+    }
+
+}
